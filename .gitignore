@@ -1,0 +1,15 @@
+# ----------
+# GIT IGNORE
+# ----------
+
+# --------------
+# COMPOSER FILES
+# --------------
+composer/vendor
+composer/cache
+
+# --------
+# OS FILES
+# --------
+.DS_Store
+

@@ -1,0 +1,17 @@
+{
+  "name": "composer.sso.test",
+  "description": "composer.sso.test",
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "slim/slim": "^3.10",
+    "onelogin/php-saml": "^2.13"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "app",
+      "App\\Models\\": "app/models",
+      "App\\Controllers\\": "app/controllers"
+    }
+  }
+}

@@ -1,0 +1,146 @@
+version: '3'
+
+services:
+  #=====================#
+  # nginx proxy service #
+  #=====================#
+  nginx_proxy:
+    image: nginx:alpine
+    networks:
+      - test_network
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      # self-signed testing wildcard ssl certificate
+      - "./certs:/certs"
+      # proxy needs access to static files
+#      - "./facebook/public:/facebook/public"
+#      - "./google/public:/google/public"
+#      - "./lti/public:/lti/public"
+      - "./samlidp/public:/samlidp/public"
+      - "./samlsp/public:/samlsp/public"
+      - "./www/public:/www/public"
+      # proxy needs nginx configuration files
+#      - "./facebook/facebook.sso.test.conf:/etc/nginx/conf.d/facebook.sso.test.conf"
+#      - "./google/google.sso.test.conf:/etc/nginx/conf.d/google.sso.test.conf"
+#      - "./lti/lti.sso.test.conf:/etc/nginx/conf.d/lti.sso.test.conf"
+      - "./samlidp/samlidp.sso.test.conf:/etc/nginx/conf.d/samlidp.sso.test.conf"
+      - "./samlsp/samlsp.sso.test.conf:/etc/nginx/conf.d/samlsp.sso.test.conf"
+      - "./www/www.sso.test.conf:/etc/nginx/conf.d/www.sso.test.conf"
+    container_name: nginx_proxy
+
+  #===================#
+  # composer.sso.test #
+  #===================#
+  composer.sso.test:
+    image: composer/composer
+    networks:
+      - test_network
+    ports:
+      - "9001:9000"
+    volumes:
+      - "./composer:/composer"
+    container_name: composer.sso.test
+    working_dir: /composer
+    command: install
+
+  #===================#
+  # facebook.sso.test #
+  #===================#
+#  facebook.sso.test:
+#    build: ./facebook
+#    networks:
+#      - test_network
+#    ports:
+#      - "9003:9000"
+#    environment:
+#      - "VIRTUAL_HOST=facebook.sso.test"
+#    volumes:
+#      - "./composer:/composer"
+#      - "./facebook:/facebook"
+#    container_name: facebook.sso.test
+
+  #=================#
+  # google.sso.test #
+  #=================#
+#  google.sso.test:
+#    build: ./google
+#    networks:
+#      - test_network
+#    ports:
+#      - "9004:9000"
+#    environment:
+#      - "VIRTUAL_HOST=google.sso.test"
+#    volumes:
+#      - "./composer:/composer"
+#      - "./google:/google"
+#    container_name: google.sso.test
+
+  #==============#
+  # lti.sso.test #
+  #==============#
+#  lti.sso.test:
+#    build: ./lti
+#    networks:
+#      - test_network
+#    ports:
+#      - "9002:9000"
+#    environment:
+#      - "VIRTUAL_HOST=lti.sso.test"
+#    volumes:
+#      - "./composer:/composer"
+#      - "./lti:/lti"
+#    container_name: lti.sso.test
+
+  #==================#
+  # samlidp.sso.test #
+  #==================#
+  samlidp.sso.test:
+    build: ./samlidp
+    networks:
+      - test_network
+    ports:
+      - "9005:9000"
+    environment:
+      - "VIRTUAL_HOST=samlidp.sso.test"
+    volumes:
+      - "./composer:/composer"
+      - "./samlidp:/samlidp"
+    container_name: samlidp.sso.test
+
+  #=================#
+  # samlsp.sso.test #
+  #=================#
+  samlsp.sso.test:
+    build: ./samlsp
+    networks:
+      - test_network
+    ports:
+      - "9006:9000"
+    environment:
+      - "VIRTUAL_HOST=samlsp.sso.test"
+    volumes:
+      - "./composer:/composer"
+      - "./samlsp:/samlsp"
+    container_name: samlsp.sso.test
+
+  #==============#
+  # www.sso.test #
+  #==============#
+  www.sso.test:
+    build: ./www
+    networks:
+      - test_network
+    ports:
+      - "9007:9000"
+    environment:
+      - "VIRTUAL_HOST=www.sso.test"
+    volumes:
+      - "./composer:/composer"
+      - "./www:/www"
+    container_name: www.sso.test
+
+# networks
+networks:
+  test_network:
