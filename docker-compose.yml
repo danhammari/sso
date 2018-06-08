@@ -15,16 +15,16 @@ services:
       # self-signed testing wildcard ssl certificate
       - "./certs:/certs"
       # proxy needs access to static files
-#      - "./facebook/public:/facebook/public"
-#      - "./google/public:/google/public"
-#      - "./lti/public:/lti/public"
+      - "./facebook/public:/facebook/public"
+      - "./google/public:/google/public"
+      - "./lti/public:/lti/public"
       - "./samlidp/public:/samlidp/public"
       - "./samlsp/public:/samlsp/public"
       - "./www/public:/www/public"
       # proxy needs nginx configuration files
-#      - "./facebook/facebook.sso.test.conf:/etc/nginx/conf.d/facebook.sso.test.conf"
-#      - "./google/google.sso.test.conf:/etc/nginx/conf.d/google.sso.test.conf"
-#      - "./lti/lti.sso.test.conf:/etc/nginx/conf.d/lti.sso.test.conf"
+      - "./facebook/facebook.sso.test.conf:/etc/nginx/conf.d/facebook.sso.test.conf"
+      - "./google/google.sso.test.conf:/etc/nginx/conf.d/google.sso.test.conf"
+      - "./lti/lti.sso.test.conf:/etc/nginx/conf.d/lti.sso.test.conf"
       - "./samlidp/samlidp.sso.test.conf:/etc/nginx/conf.d/samlidp.sso.test.conf"
       - "./samlsp/samlsp.sso.test.conf:/etc/nginx/conf.d/samlsp.sso.test.conf"
       - "./www/www.sso.test.conf:/etc/nginx/conf.d/www.sso.test.conf"
@@ -50,50 +50,50 @@ services:
   #===================#
   # facebook.sso.test #
   #===================#
-#  facebook.sso.test:
-#    build: ./facebook
-#    networks:
-#      - test_network
-#    ports:
-#      - "9003:9000"
-#    environment:
-#      - "VIRTUAL_HOST=facebook.sso.test"
-#    volumes:
-#      - "./composer:/composer"
-#      - "./facebook:/facebook"
-#    container_name: facebook.sso.test
+  facebook.sso.test:
+    build: ./facebook
+    networks:
+      - test_network
+    ports:
+      - "9002:9000"
+    environment:
+      - "VIRTUAL_HOST=facebook.sso.test"
+    volumes:
+      - "./composer:/composer"
+      - "./facebook:/facebook"
+    container_name: facebook.sso.test
 
   #=================#
   # google.sso.test #
   #=================#
-#  google.sso.test:
-#    build: ./google
-#    networks:
-#      - test_network
-#    ports:
-#      - "9004:9000"
-#    environment:
-#      - "VIRTUAL_HOST=google.sso.test"
-#    volumes:
-#      - "./composer:/composer"
-#      - "./google:/google"
-#    container_name: google.sso.test
+  google.sso.test:
+    build: ./google
+    networks:
+      - test_network
+    ports:
+      - "9003:9000"
+    environment:
+      - "VIRTUAL_HOST=google.sso.test"
+    volumes:
+      - "./composer:/composer"
+      - "./google:/google"
+    container_name: google.sso.test
 
   #==============#
   # lti.sso.test #
   #==============#
-#  lti.sso.test:
-#    build: ./lti
-#    networks:
-#      - test_network
-#    ports:
-#      - "9002:9000"
-#    environment:
-#      - "VIRTUAL_HOST=lti.sso.test"
-#    volumes:
-#      - "./composer:/composer"
-#      - "./lti:/lti"
-#    container_name: lti.sso.test
+  lti.sso.test:
+    build: ./lti
+    networks:
+      - test_network
+    ports:
+      - "9004:9000"
+    environment:
+      - "VIRTUAL_HOST=lti.sso.test"
+    volumes:
+      - "./composer:/composer"
+      - "./lti:/lti"
+    container_name: lti.sso.test
 
   #==================#
   # samlidp.sso.test #
