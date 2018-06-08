@@ -4,7 +4,7 @@ services:
   #=====================#
   # nginx proxy service #
   #=====================#
-  nginx_proxy:
+  nginx_sso_proxy:
     image: nginx:alpine
     networks:
       - test_network
@@ -28,7 +28,7 @@ services:
       - "./samlidp/samlidp.sso.test.conf:/etc/nginx/conf.d/samlidp.sso.test.conf"
       - "./samlsp/samlsp.sso.test.conf:/etc/nginx/conf.d/samlsp.sso.test.conf"
       - "./www/www.sso.test.conf:/etc/nginx/conf.d/www.sso.test.conf"
-    container_name: nginx_proxy
+    container_name: nginx_sso_proxy
 
   #===================#
   # composer.sso.test #
@@ -41,6 +41,8 @@ services:
       - "9001:9000"
     volumes:
       - "./composer:/composer"
+      - "./samlidp:/samlidp"
+      - "./samlsp:/samlsp"
     container_name: composer.sso.test
     working_dir: /composer
     command: install

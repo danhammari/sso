@@ -33,7 +33,7 @@ This repository is built around a docker compose file that will create sso.test 
 
 5. You should now be able to access the following domains in your web browser:
 ```
-    https://facebooks.sso.test
+    https://facebook.sso.test
     https://google.sso.test
     https://lti.sso.test
     https://samlidp.sso.test

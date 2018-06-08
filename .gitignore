@@ -9,6 +9,13 @@ composer/vendor
 composer/cache
 composer/composer.lock
 
+# --------------
+# SAML IDP FILES
+# --------------
+samlidp/certificates/saml.crt
+samlidp/certificates/saml.pem
+samlidp/logs/samlidp.log
+
 # --------
 # OS FILES
 # --------
