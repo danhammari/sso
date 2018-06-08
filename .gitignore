@@ -10,11 +10,31 @@ composer/cache
 composer/composer.lock
 
 # --------------
+# FACEBOOK FILES
+# --------------
+facebook/logs/facebook.log
+
+# ------------
+# GOOGLE FILES
+# ------------
+google/logs/google.log
+
+# ---------
+# LTI FILES
+# ---------
+lti/logs/lti.log
+
+# --------------
 # SAML IDP FILES
 # --------------
 samlidp/certificates/saml.crt
 samlidp/certificates/saml.pem
 samlidp/logs/samlidp.log
+
+# -------------
+# SAML SP FILES
+# -------------
+samlsp/logs/samlsp.log
 
 # --------
 # OS FILES
