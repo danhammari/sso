@@ -35,6 +35,16 @@ $app->get('/', function (Request $request, Response $response) {
 	$response = $this->view->render($response, 'index.phtml', []);
 	return $response;
 });
+$app->post('/launch', function (Request $request, Response $response) {
+	$lti = new \Lti\Lti_endpoint();
+	$response->getBody()->write( $lti->handlePost( $request->getParsedBody() ) );
+	return $response;
+});
+$app->get('/xml', function (Request $request, Response $response) {
+	$lti = new \Lti\Lti_xml();
+	$response->getBody()->write( $lti->handle() );
+	return $response;
+});
 
 /*  +-----------+
     |  RUN APP  |

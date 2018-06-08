@@ -13,6 +13,9 @@
     },
     "autoload": {
         "psr-4": {
+            "FacebookSso\\": "/facebook/classes/",
+            "GoogleSso\\": "/google/classes/",
+            "Lti\\": "/lti/classes/",
             "Samlidp\\": "/samlidp/classes/",
             "Samlsp\\": "/samlsp/classes/"
         }
