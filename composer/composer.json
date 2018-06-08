@@ -9,7 +9,9 @@
         "monolog/monolog": "^1.17",
         "onelogin/php-saml": "^2.13",
         "league/oauth2-server": "~4.1",
-        "lightsaml/lightsaml-idp": "^1.0"
+        "lightsaml/lightsaml-idp": "^1.0",
+        "google/apiclient": "^2.0",
+        "facebook/graph-sdk": "^5.0"
     },
     "autoload": {
         "psr-4": {

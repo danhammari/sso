@@ -9,17 +9,28 @@
 	<body>
 		<h1>SAML IDENTITY PROVIDER (IdP)</h1>
 		<h2>Have you joined the federation?</h2>
-		<h3>USER MENU</h3>
-		<ul>
-			<li><a href='/login'>log in</a></li>
-			<li><a href='/dashboard'>SSO into a federated service provider</a></li>
-			<li><a href='/logout'>log out</a></li>
-		</ul>
-		<h3>FEDERATED SERVICE PROVIDERS</h3>
-		<ul>
-			<li><a href='/metadata'>get SAML metadata</a></li>
-			<li><a href='/getauth'>request authorization assertion</a></li>
-		</ul>
+		<div style='width:45%; float:left;'>
+			<h3>USER MENU</h3>
+			<ul>
+				<li><a href='/login'>log in</a></li>
+				<li><a href='/dashboard'>SSO into a federated service provider</a></li>
+				<li><a href='/logout'>log out</a></li>
+			</ul>
+			<h3>FEDERATED SERVICE PROVIDERS</h3>
+			<ul>
+				<li><a href='/metadata'>get SAML metadata</a></li>
+				<li><a href='/getauth'>request authorization assertion</a></li>
+			</ul>
+		</div>
+		<div style='width:45%; float:left;'>
+			<h3>HELPFUL LINKS</h3>
+			<ul>
+				<li><a target='_new' href='https://blogs.oracle.com/dcarru/sp-vs-idp-initiated-sso'>SP vs IdP Initiated SSO</a></li>
+				<li><a target='_new' href='https://www.samltool.com/idp_metadata.php'>Build IdP Metadata XML</a></li>
+				<li><a target='_new' href='https://www.mutuallyhuman.com/blog/2013/05/09/choosing-an-sso-strategy-saml-vs-oauth2/'>SAML vs. OAuth2</a></li>
+				<li><a target='_new' href='http://docs.oasis-open.org/security/saml/Post2.0/sstc-saml2-profiles-deploy-x509.html'>x509 Certificates</a></li>
+			</ul>
+		</div>
 		<img id='federation_image' src='images/articles_of_confederation.gif' style='max-width:800px;' />
 	</body>
 </html>
